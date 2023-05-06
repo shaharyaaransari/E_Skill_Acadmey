@@ -40,7 +40,7 @@ function Login() {
         fetch(`https://cute-puce-jackrabbit-robe.cyclic.app/user`)
             .then((res) => res.json())
             .then((resp) => {
-                console.log(resp)
+               // console.log(resp)
                 setData(resp)
             })
     }
@@ -50,6 +50,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault()
       //  console.log(state)
+      
         data.map((item) => {
           //  console.log(item.email, item.password)
             if (item.email === email && item.password === password) {
@@ -57,10 +58,10 @@ function Login() {
             }
         })
     }
-    console.log(isAuth)
+    //console.log(isAuth)
     if (isAuth) {
 
-        return <Navigate to="/Home" />
+        return <Navigate to="/Almost" />
     }
     return (
         <>
@@ -128,7 +129,7 @@ function Login() {
                         </Stack>
                     </Flex>
                 </Box> : null}
-                {createForm ? <CreateAccount /> : null}
+                {createForm ? <CreateAccount fetchData={fetchData} show={show} setShow={setShow} setForm={setForm} createForm={createForm}/> : null}
                 {createForm || show ? null : <Box>
                     <Button mt={3} bg="teal.500" color="white" onClick={() => setShow(!show)}>Get Started</Button>
                     <Spacer />
