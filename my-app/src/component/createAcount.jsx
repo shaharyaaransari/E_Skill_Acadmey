@@ -1,5 +1,6 @@
 import { Flex, FormControl, FormLabel, Input, Checkbox, Stack, Link, Text, Button, Box } from "@chakra-ui/react"
-import { useReducer } from "react"
+import { useContext, useReducer } from "react"
+
 const initailState = {
     name: "",
     email: "",
@@ -30,12 +31,31 @@ const reducer = (state, action) => {
         }
     }
 }
-function CreateAccount() {
+function CreateAccount({setForm,createForm,fetchData}) {
     const [state, dispatch] = useReducer(reducer, initailState)
     const { name, email, password } = state
+   
+    
     const handleSubmit = (e) => {
         e.preventDefault()
+        setForm(!createForm)
+      //  login()
         console.log(state)
+        fetch(`https://cute-puce-jackrabbit-robe.cyclic.app/user`,{
+          method:"POST",
+          headers:{"Content-Type": "application/json"},
+          body:JSON.stringify(state)
+        })
+        .then((re)=>re.json())
+        .then(()=>{
+        console.log(res.token)
+            fetchData()
+           
+        })
+        .catch((err)=>{
+           
+            console.log(err)
+        })
     }
     return (
         <>
