@@ -1,0 +1,41 @@
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: left;
+    margin: 10px;
+  }
+  
+  .sub {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .sub p {
+    margin: 5px;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .sub {
+      flex-direction: column;
+    }
+  }
+.play{
+    display: flex;
+    width: 300px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.ex{
+    font-weight: 700;
+    color: black;
+    padding-bottom: 10px;
+}
+.so{
+    display: flex;
+   justify-content: space-between;
+}
+
+.li{
+    list-style-type: none;
+}

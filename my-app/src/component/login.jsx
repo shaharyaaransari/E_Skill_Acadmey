@@ -33,7 +33,7 @@ function Login() {
     const [createForm, setForm] = useState(false)
     const [data, setData] = useState([])
     const [state, dispatch] = useReducer(reducer, initailState)
-    const { isAuth, login } = useContext(AuthContext)
+    const { isAuth, login ,setName} = useContext(AuthContext)
     //console.log(isAuth,login)
     const { email, password } = state
     const fetchData = () => {
@@ -52,8 +52,10 @@ function Login() {
       //  console.log(state)
       
         data.map((item) => {
+           
           //  console.log(item.email, item.password)
             if (item.email === email && item.password === password) {
+                setName(item.name)
              login()
             }
         })
@@ -61,7 +63,7 @@ function Login() {
     //console.log(isAuth)
     if (isAuth) {
 
-        return <Navigate to="/Almost" />
+        return <Navigate to="/Home" />
     }
     return (
         <>
