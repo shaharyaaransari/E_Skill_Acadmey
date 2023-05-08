@@ -1,6 +1,8 @@
 import { Flex, FormControl, FormLabel, Input, Checkbox, Stack, Link, Text, Button, Box } from "@chakra-ui/react"
-import { useContext, useReducer } from "react"
+import {  useReducer, useState,useContext } from "react"
 
+import { Navigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContextProvider"
 const initailState = {
     name: "",
     email: "",
@@ -31,15 +33,18 @@ const reducer = (state, action) => {
         }
     }
 }
-function CreateAccount({setForm,createForm,fetchData}) {
+function CreateAccount({fetchData}) {
     const [state, dispatch] = useReducer(reducer, initailState)
     const { name, email, password } = state
-   
+    const [almost ,setAlmost]=useState(false)
+    const { setName } = useContext(AuthContext)
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        setForm(!createForm)
-      //  login()
+        setName(name)
+       // setForm(!createForm)
+       setAlmost(true)
+     // login()
         console.log(state)
         fetch(`https://cute-puce-jackrabbit-robe.cyclic.app/user`,{
           method:"POST",
@@ -56,6 +61,11 @@ function CreateAccount({setForm,createForm,fetchData}) {
            
             console.log(err)
         })
+    }
+    if (almost) {
+        console.log("kin")
+
+        return <Navigate to ="/Almost" />
     }
     return (
         <>
