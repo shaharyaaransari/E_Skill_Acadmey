@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { AuthContext } from "../context/AuthContextProvider"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
@@ -11,7 +11,8 @@ function Home(){
         <>
         <Navbar obj={obj}/>
         <Box>
-        <Heading as="h5" mt={5}>Start where you left off</Heading>
+            <Heading as="h6"  color="teal.300" >Board:{obj.board}</Heading>
+        <Heading as="h6" color="teal.300" mt={5}>Start where you left off</Heading>
         <Box w="500px"  m="auto" bg="teal.100" mt={3} borderRadius={2} h="50px">
             <Text mb={2}>proportion</Text>
              <Progress value={70}colorScheme='teal' size='md' /> 

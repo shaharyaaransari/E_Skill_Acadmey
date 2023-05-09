@@ -49,18 +49,18 @@ function Login() {
     }, [])
     const handleSubmit = (e) => {
         e.preventDefault()
-      //  console.log(state)
+      
       
         data.map((item) => {
            
-          //  console.log(item.email, item.password)
+         
             if (item.email === email && item.password === password) {
                 setName(item.name)
              login()
             }
         })
     }
-    //console.log(isAuth)
+    
     if (isAuth) {
 
         return <Navigate to="/Home" />
