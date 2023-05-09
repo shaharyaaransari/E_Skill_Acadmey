@@ -49,7 +49,7 @@ function CreateAccount({fetchData}) {
         fetch(`https://cute-puce-jackrabbit-robe.cyclic.app/user`,{
           method:"POST",
           headers:{"Content-Type": "application/json"},
-          body:JSON.stringify(state)
+          body:JSON.stringify({...state,point:`${Math.ceil(Math.random()*200)} XP` ,img:Math.ceil(Math.random()*20),avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-1lVxzjly063iGjZqNn5Uacq9KeHpillloNZrSKUL1Q&usqp=CAU&ec=48600112"})
         })
         .then((re)=>re.json())
         .then(()=>{

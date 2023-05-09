@@ -3,13 +3,13 @@ import {
     Box, IconButton, Image, Input, Text, InputGroup, InputLeftElement, Menu, MenuButton, MenuItem, MenuList, Flex, Spacer,
      Button
 } from '@chakra-ui/react'
-import { BiCart, BiLayer, BiUser } from "react-icons/bi";
+import {  BiLayer, BiUser } from "react-icons/bi";
 
 import { Link } from "react-router-dom"
 //import Login from './login';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContextProvider';
-
+import image from "../image/E-Skill.png"
 
 function Navbar({setQuery,query}) {
     const {names}=useContext(AuthContext)
@@ -22,9 +22,9 @@ function Navbar({setQuery,query}) {
                 <Flex >
                     <Box w="30%">
 
-                        <Link to="/"> <Image w="50%"
+                        <Link to="/"> <Image w="35%"
 
-                           // src={img1}
+                            src={image}
                             ml={10} /></Link>
                     </Box>
                     <Box mt={5}>
@@ -110,11 +110,11 @@ function Navbar({setQuery,query}) {
                             <MenuButton
                                 as={IconButton}
                                 aria-label='Options'
-                                icon={<BiCart />}
+                                
                                 variant='outline'
                                 border="none"
                                 m={2} />
-                            <Link to="/Cart"> <span>Cart</span></Link>
+                            <Link to="/leader"> <span>Leaderboard</span></Link>
                         </Menu>
                     </Box>
                 </Flex>
